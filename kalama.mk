@@ -1,9 +1,8 @@
 BUILD_BROKEN_DUP_RULES := true
-TEMPORARY_DISABLE_PATH_RESTRICTIONS := true
-
-RELAX_USES_LIBRARY_CHECK := true
 
 ALLOW_MISSING_DEPENDENCIES := true
+RELAX_USES_LIBRARY_CHECK := true
+
 TARGET_BOARD_PLATFORM := taro
 
 # Default Android A/B configuration
@@ -64,7 +63,7 @@ SYSTEMEXT_SEPARATE_PARTITION_ENABLE := true
 #true means QMAA is enabled for system
 #false means QMAA is disabled for system
 
-TARGET_USES_QMAA := true
+TARGET_USES_QMAA := false
 
 #QMAA flag which is set to incorporate any generic dependencies
 #required for the boot to UI flow in a QMAA enabled target.
@@ -103,7 +102,7 @@ TARGET_USES_QMAA_OVERRIDE_MSMIRQBALANCE := true
 TARGET_USES_QMAA_OVERRIDE_VIBRATOR := true
 TARGET_USES_QMAA_OVERRIDE_DRM     := true
 TARGET_USES_QMAA_OVERRIDE_KMGK := true
-TARGET_USES_QMAA_OVERRIDE_VPP := false
+TARGET_USES_QMAA_OVERRIDE_VPP := true
 TARGET_USES_QMAA_OVERRIDE_GP := true
 TARGET_USES_QMAA_OVERRIDE_BIOMETRICS := true
 TARGET_USES_QMAA_OVERRIDE_SPCOM_UTEST := true
@@ -111,6 +110,9 @@ TARGET_USES_QMAA_OVERRIDE_PERF := true
 TARGET_USES_QMAA_OVERRIDE_SENSORS := true
 TARGET_USES_QMAA_OVERRIDE_SYNX := true
 TARGET_USES_QMAA_OVERRIDE_SECUREMSM_TESTS := true
+TARGET_USES_QMAA_OVERRIDE_SOTER := true
+TARGET_USES_QMAA_OVERRIDE_REMOTE_EFS := true
+TARGET_USES_QMAA_OVERRIDE_TFTP := true
 
 #Full QMAA HAL List
 QMAA_HAL_LIST := audio video camera display sensors gps
@@ -250,10 +252,6 @@ TARGET_USES_QCOM_BSP := false
 # RRO configuration
 TARGET_USES_RRO := true
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=560
-
-
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 ###########
@@ -357,6 +355,8 @@ DEVICE_MANIFEST_TARO_FILES := device/qcom/taro/manifest_taro.xml
 
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 
+CLEAN_UP_JAVA_IN_VENDOR := warning
+
 #Audio DLKM
 #AUDIO_DLKM := audio_apr.ko
 #AUDIO_DLKM += audio_q6_pdr.ko
@@ -416,7 +416,18 @@ PRODUCT_FULL_TREBLE_OVERRIDE := true
 PRODUCT_VENDOR_MOVE_ENABLED := true
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 BOARD_SYSTEMSDK_VERSIONS := 30
-BOARD_VNDK_VERSION := current
+ifeq (true,$(BUILDING_WITH_VSDK))
+    ALLOW_MISSING_DEPENDENCIES := true
+    TARGET_SKIP_CURRENT_VNDK := true
+    BOARD_VNDK_VERSION := 31
+    RECOVERY_SNAPSHOT_VERSION := 31
+    RAMDISK_SNAPSHOT_VERSION := 31
+else
+    BOARD_VNDK_VERSION := current
+    RECOVERY_SNAPSHOT_VERSION := current
+    RAMDISK_SNAPSHOT_VERSION := current
+endif
+
 TARGET_MOUNT_POINTS_SYMLINKS := false
 
 # FaceAuth feature
@@ -469,6 +480,12 @@ PRODUCT_PACKAGES += vmmgr vmmgr.rc vmmgr.conf
 endif
 
 PRODUCT_PACKAGES += com.android.vndk.current.on_vendor
+
+##Armv9-Tests##
+PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
+                          pac_test \
+                          mte_tests
+##Armv9-Tests##
 
 ###################################################################################
 # This is the End of target.mk file.
