@@ -10,6 +10,8 @@ ENABLE_AB ?= true
 
 ENABLE_VIRTUAL_AB := true
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+# Enable debugfs restrictions
+PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 
 #Enable vm support
 TARGET_ENABLE_VM_SUPPORT := true
@@ -113,6 +115,7 @@ TARGET_USES_QMAA_OVERRIDE_SECUREMSM_TESTS := true
 TARGET_USES_QMAA_OVERRIDE_SOTER := true
 TARGET_USES_QMAA_OVERRIDE_REMOTE_EFS := true
 TARGET_USES_QMAA_OVERRIDE_TFTP := true
+TARGET_USES_QMAA_OVERRIDE_EID := true
 
 #Full QMAA HAL List
 QMAA_HAL_LIST := audio video camera display sensors gps
@@ -136,6 +139,8 @@ PRODUCT_PACKAGES += init.qti.usb.qmaa.rc
 PRODUCT_PROPERTY_OVERRIDES += persist.vendor.usb.config=adb
 endif
 endif
+
+CLEAN_UP_JAVA_IN_VENDOR := warning
 
 SHIPPING_API_LEVEL := 30
 PRODUCT_SHIPPING_API_LEVEL := 30
@@ -350,12 +355,11 @@ TARGET_USES_IMAGE_GEN_TOOL := true
 
 # QCV allows multiple chipsets to be supported on a single vendor.
 # Add vintf device manifests for chipsets in taro QCV family below.
+TARGET_USES_QCV := true
 DEVICE_MANIFEST_SKUS := taro
 DEVICE_MANIFEST_TARO_FILES := device/qcom/taro/manifest_taro.xml
 
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
-
-CLEAN_UP_JAVA_IN_VENDOR := warning
 
 #Audio DLKM
 #AUDIO_DLKM := audio_apr.ko
@@ -468,9 +472,6 @@ PRODUCT_ENABLE_QESDK := true
 # Vendor property to enable advanced network scanning
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.enableadvancedscan=true
-
-PRODUCT_COPY_FILES += \
-    device/qcom/taro/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
 
 # ODM ueventd.rc
 # - only for use with VM support right now
