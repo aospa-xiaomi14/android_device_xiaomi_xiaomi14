@@ -348,7 +348,7 @@ PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-impl
 # Enable binderized camera HAL
 PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-service_64
 
-DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/taro/framework_manifest.xml
+DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/kalama/framework_manifest.xml
 
 # Enable compilation of image_generation_tool
 TARGET_USES_IMAGE_GEN_TOOL := true
@@ -356,8 +356,8 @@ TARGET_USES_IMAGE_GEN_TOOL := true
 # QCV allows multiple chipsets to be supported on a single vendor.
 # Add vintf device manifests for chipsets in taro QCV family below.
 TARGET_USES_QCV := false
-DEVICE_MANIFEST_SKUS := taro
-DEVICE_MANIFEST_TARO_FILES := device/qcom/taro/manifest_taro.xml
+DEVICE_MANIFEST_SKUS := kalama
+DEVICE_MANIFEST_KALAMA_FILES := device/qcom/kalama/manifest_kalama.xml
 
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 
