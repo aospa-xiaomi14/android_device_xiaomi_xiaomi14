@@ -65,7 +65,9 @@ on post-fs
 on late-fs
     wait_for_prop hwservicemanager.ready true
     #exec_start wait_for_keymaster
+    #TODO: Temporary bring-up changes - start
     start console
+    #TODO: Temporary bring-up changes - end
     mount_all /vendor/etc/fstab.qcom --late
 
 on post-fs-data
