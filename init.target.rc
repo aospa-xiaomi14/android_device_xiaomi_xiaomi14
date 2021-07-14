@@ -57,6 +57,9 @@ on fs && property:ro.boot.product.vendor.sku=taro
     wait /dev/block/bootdevice/by-name/spunvm
     mount vfat /dev/block/bootdevice/by-name/spunvm /mnt/vendor/spunvm rw noatime shortname=lower,uid=1000,gid=1000,dmask=007,fmask=007,context=u:object_r:vendor_spunvm_file:s0
 
+on property:ro.boot.product.vendor.sku=taro
+    setprop ro.soc.model taro
+
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
@@ -65,9 +68,6 @@ on post-fs
 on late-fs
     wait_for_prop hwservicemanager.ready true
     #exec_start wait_for_keymaster
-    #TODO: Temporary bring-up changes - start
-    start console
-    #TODO: Temporary bring-up changes - end
     mount_all /vendor/etc/fstab.qcom --late
 
 on post-fs-data
@@ -111,6 +111,7 @@ on init && property:ro.boot.mode=charger
 on charger
     start vendor.power_off_alarm
     setprop sys.usb.controller a600000.dwc3
+    wait /sys/class/udc/${sys.usb.controller}
     setprop sys.usb.configfs 1
 
 #service vendor.lowi /vendor/bin/sscrpcd
@@ -165,3 +166,7 @@ service vendor.cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
 on early-boot && property:persist.vendor.pcie.boot_option=*
     write /sys/bus/platform/devices/1c00000.qcom,pcie/debug/boot_option ${persist.vendor.pcie.boot_option}
     write /sys/bus/platform/devices/1c08000.qcom,pcie/debug/boot_option ${persist.vendor.pcie.boot_option}
+
+on property:sys.boot_completed=1
+    enable vendor.qvirtmgr
+    start  vendor.qvirtmgr

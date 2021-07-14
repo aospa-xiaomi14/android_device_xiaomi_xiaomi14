@@ -3,7 +3,7 @@ BUILD_BROKEN_DUP_RULES := true
 ALLOW_MISSING_DEPENDENCIES := true
 RELAX_USES_LIBRARY_CHECK := true
 
-TARGET_BOARD_PLATFORM := taro
+TARGET_BOARD_PLATFORM := kalama
 
 # Default Android A/B configuration
 ENABLE_AB ?= true
@@ -23,6 +23,10 @@ TARGET_CONSOLE_ENABLED ?=
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
+# Set SoC manufacturer property
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.soc.manufacturer=QTI
+
 # For QSSI builds, we should skip building the system image. Instead we build the
 # "non-system" images (that we support).
 
@@ -39,6 +43,7 @@ else
 PRODUCT_BUILD_CACHE_IMAGE := true
 endif
 PRODUCT_BUILD_RAMDISK_IMAGE := true
+PRODUCT_BUILD_RECOVERY_IMAGE := true
 PRODUCT_BUILD_USERDATA_IMAGE := true
 
 # Also, since we're going to skip building the system image, we also skip
@@ -142,6 +147,18 @@ endif
 
 CLEAN_UP_JAVA_IN_VENDOR := warning
 
+JAVA_IN_VENDOR_SOONG_WHITE_LIST :=\
+CuttlefishService\
+pasrservice\
+QFingerprintService\
+QFPCalibration\
+VendorPrivAppPermissionTest\
+
+JAVA_IN_VENDOR_MAKE_WHITE_LIST :=\
+AEye\
+FDA\
+SnapdragonCamera\
+
 SHIPPING_API_LEVEL := 30
 PRODUCT_SHIPPING_API_LEVEL := 30
 
@@ -204,7 +221,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_NAME := kalama
 PRODUCT_DEVICE := kalama
 PRODUCT_BRAND := qti
-PRODUCT_MODEL := Taro for arm64
+PRODUCT_MODEL := Kalama for arm64
 
 #----------------------------------------------------------------------
 # wlan specific
@@ -233,24 +250,7 @@ else
 endif
 # /* Disable perf opts */
 
-#----------------------------------------------------------------------
-# audio specific
-#----------------------------------------------------------------------
-TARGET_USES_AOSP := false
-TARGET_USES_AOSP_FOR_AUDIO := false
-ifeq ($(TARGET_USES_QMAA_OVERRIDE_AUDIO), false)
-ifeq ($(TARGET_USES_QMAA),true)
-AUDIO_USE_STUB_HAL := true
-TARGET_USES_AOSP_FOR_AUDIO := true
--include $(TOPDIR)vendor/qcom/opensource/audio-hal/primary-hal/configs/common/default.mk
-else
-# Audio hal configuration file
--include $(TOPDIR)vendor/qcom/opensource/audio-hal/primary-hal/configs/taro/taro.mk
-endif
-else
-# Audio hal configuration file
--include $(TOPDIR)vendor/qcom/opensource/audio-hal/primary-hal/configs/taro/taro.mk
-endif
+
 
 TARGET_USES_QCOM_BSP := false
 
@@ -262,7 +262,7 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 ###########
 # Target configurations
 
-QCOM_BOARD_PLATFORMS += taro
+QCOM_BOARD_PLATFORMS += kalama
 
 TARGET_USES_QSSI := true
 
@@ -296,9 +296,9 @@ ifeq ($(ENABLE_AB), true)
 PRODUCT_PACKAGES += update_engine \
     update_engine_client \
     update_verifier \
-    android.hardware.boot@1.1-impl-qti \
-    android.hardware.boot@1.1-impl-qti.recovery \
-    android.hardware.boot@1.1-service
+    android.hardware.boot@1.2-impl-qti \
+    android.hardware.boot@1.2-impl-qti.recovery \
+    android.hardware.boot@1.2-service
 
 PRODUCT_HOST_PACKAGES += \
     brillo_update_payload
@@ -342,13 +342,20 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_OPTIONAL_vendor=true
 
 # Camera configuration file. Shared by passthrough/binderized camera HAL
-PRODUCT_PACKAGES += camera.device@3.2-impl
 PRODUCT_PACKAGES += camera.device@1.0-impl
-PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-impl
+PRODUCT_PACKAGES += camx.device@3.5-impl
+PRODUCT_PACKAGES += camx.device@3.4-impl
+PRODUCT_PACKAGES += camx.device@3.3-impl
+PRODUCT_PACKAGES += camx.device@3.2-impl
+PRODUCT_PACKAGES += camx.provider@2.4-impl
+PRODUCT_PACKAGES += camx.provider@2.6-legacy
 # Enable binderized camera HAL
-PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-service_64
+PRODUCT_PACKAGES += vendor.qti.camera.provider@2.6-service_64
 
-DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/kalama/framework_manifest.xml
+# Macro allows Camera module to use new service
+QTI_CAMERA_PROVIDER_SERVICE := true
+
+DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/taro/framework_manifest.xml
 
 # Enable compilation of image_generation_tool
 TARGET_USES_IMAGE_GEN_TOOL := true
@@ -395,15 +402,7 @@ PRODUCT_PACKAGES += $(AUDIO_DLKM)
 KERNEL_MODULES_INSTALL := dlkm
 KERNEL_MODULES_OUT := out/target/product/$(PRODUCT_NAME)/$(KERNEL_MODULES_INSTALL)/lib/modules
 
-ifeq ($(AUDIO_USE_STUB_HAL), true)
-PRODUCT_COPY_FILES += \
-    frameworks/av/services/audiopolicy/config/audio_policy_configuration_generic.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/primary_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/primary_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/r_submix_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_volumes.xml \
-    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/default_volume_tables.xml \
-    frameworks/av/services/audiopolicy/config/surround_sound_configuration_5_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/surround_sound_configuration_5_0.xml
-endif
+
 
 USE_LIB_PROCESS_GROUP := true
 
@@ -411,26 +410,46 @@ USE_LIB_PROCESS_GROUP := true
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
 
-# Pro Audio feature
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.audio.pro.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.pro.xml
 
 #Enable full treble flag
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 PRODUCT_VENDOR_MOVE_ENABLED := true
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 BOARD_SYSTEMSDK_VERSIONS := 30
+
+DISABLED_VSDK_SNAPSHOTS_LIST := $(subst $(comma),$(space),$(DISABLED_VSDK_SNAPSHOTS))
+
 ifeq (true,$(BUILDING_WITH_VSDK))
     ALLOW_MISSING_DEPENDENCIES := true
     TARGET_SKIP_CURRENT_VNDK := true
-    BOARD_VNDK_VERSION := 31
-    RECOVERY_SNAPSHOT_VERSION := 31
-    RAMDISK_SNAPSHOT_VERSION := 31
+
+    ifneq (,$(filter vendor,$(DISABLED_VSDK_SNAPSHOTS_LIST)))
+        # Vendor snapshot is disabled with VSDK
+        BOARD_VNDK_VERSION := current
+    else
+        BOARD_VNDK_VERSION := 31
+    endif
+
+    ifneq (,$(filter recovery,$(DISABLED_VSDK_SNAPSHOTS_LIST)))
+        # Recovery snapshot is disabled with VSDK
+        RECOVERY_SNAPSHOT_VERSION := current
+    else
+        RECOVERY_SNAPSHOT_VERSION := 31
+    endif
+
+    ifneq (,$(filter ramdisk,$(DISABLED_VSDK_SNAPSHOTS_LIST)))
+        # Ramdisk snapshot is disabled with VSDK
+        RAMDISK_SNAPSHOT_VERSION := current
+    else
+        RAMDISK_SNAPSHOT_VERSION := 31
+    endif
 else
     BOARD_VNDK_VERSION := current
     RECOVERY_SNAPSHOT_VERSION := current
     RAMDISK_SNAPSHOT_VERSION := current
 endif
+
+$(warning "BOARD_VNDK_VERSION = $(BOARD_VNDK_VERSION), RECOVERY_SNAPSHOT_VERSION=$(RECOVERY_SNAPSHOT_VERSION), RAMDISK_SNAPSHOT_VERSION=$(RAMDISK_SNAPSHOT_VERSION)")
 
 TARGET_MOUNT_POINTS_SYMLINKS := false
 
@@ -473,6 +492,9 @@ PRODUCT_ENABLE_QESDK := true
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.enableadvancedscan=true
 
+PRODUCT_COPY_FILES += \
+    device/qcom/taro/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
+
 # ODM ueventd.rc
 # - only for use with VM support right now
 ifeq ($(TARGET_ENABLE_VM_SUPPORT),true)
@@ -480,13 +502,16 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/ueventd-odm.rc:$(TARGET_COPY_OUT_ODM)/uevent
 PRODUCT_PACKAGES += vmmgr vmmgr.rc vmmgr.conf
 endif
 
-PRODUCT_PACKAGES += com.android.vndk.current.on_vendor
 
 ##Armv9-Tests##
 PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
                           pac_test \
                           mte_tests
 ##Armv9-Tests##
+
+# Mediaserver 64 Bit enable
+PRODUCT_PROPERTY_OVERRIDES += \
+     ro.mediaserver.64b.enable=true
 
 ###################################################################################
 # This is the End of target.mk file.
