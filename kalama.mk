@@ -19,7 +19,7 @@ TARGET_ENABLE_VM_SUPPORT := true
 # true: earlycon and console enabled
 # false: console explicitly disabled
 # <empty>: default from kernel
-TARGET_CONSOLE_ENABLED ?=
+TARGET_CONSOLE_ENABLED := true
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
