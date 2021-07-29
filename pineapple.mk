@@ -1,9 +1,10 @@
+TARGET_BOARD_PLATFORM := pineapple
+TARGET_BOOTLOADER_BOARD_NAME := pineapple
+
 BUILD_BROKEN_DUP_RULES := true
 
 ALLOW_MISSING_DEPENDENCIES := true
 RELAX_USES_LIBRARY_CHECK := true
-
-TARGET_BOARD_PLATFORM := pineapple
 
 # Default Android A/B configuration
 ENABLE_AB ?= true
