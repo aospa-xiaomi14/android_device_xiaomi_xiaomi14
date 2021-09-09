@@ -13,11 +13,35 @@ TARGET_HOST_LD_OVERRIDE := $(TARGET_HOST_COMPILER_PREFIX_OVERRIDE)ld
 # Compile (L)ittle (K)ernel bootloader and the nandwrite utility
 #----------------------------------------------------------------------
 ifneq ($(strip $(TARGET_NO_BOOTLOADER)),true)
+ifneq ($(strip $(TARGET_SIGNONLY_BOOTLOADER)),true)
 
 # Compile
 include bootable/bootloader/edk2/AndroidBoot.mk
 
 $(INSTALLED_BOOTLOADER_MODULE): $(TARGET_EMMC_BOOTLOADER) | $(ACP)
+else
+TARGET_EMMC_BOOTLOADER := $(TARGET_BOARD_UNSIGNED_ABL_DIR)/unsigned_abl.elf
+SIGN_ABL := $(PRODUCT_OUT)/abl.elf
+
+SECTOOLSV2_BIN := $(QCPATH)/sectools/Linux/sectools
+define sec-image-generate
+        echo "Generating signed appsbl using secimagev2 tool"
+        rm -rf $(PRODUCT_OUT)/abl.elf
+        ( $(SECTOOLSV2_BIN) secure-image $(TARGET_EMMC_BOOTLOADER) \
+                --outfile $(PRODUCT_OUT)/abl.elf \
+                --image-id ABL \
+                --security-profile $(SECTOOLS_SECURITY_PROFILE) \
+                --sign \
+                --signing-mode TEST \
+                > $(PRODUCT_OUT)/secimage.log 2>&1 )
+        echo "Completed secimagev2 signed appsbl (ABL) (logs in $(PRODUCT_OUT)/secimage.log)"
+endef
+
+$(SIGN_ABL): $(TARGET_EMMC_BOOTLOADER)
+	$(call sec-image-generate)
+$(INSTALLED_BOOTLOADER_MODULE): $(SIGN_ABL) | $(ACP)
+endif
+
 #   $(transform-prebuilt-to-target)
 $(BUILT_TARGET_FILES_PACKAGE): $(INSTALLED_BOOTLOADER_MODULE)
 
