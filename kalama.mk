@@ -95,7 +95,7 @@ TARGET_USES_QMAA_OVERRIDE_WFD     := false
 TARGET_USES_QMAA_OVERRIDE_GPS     := false
 TARGET_USES_QMAA_OVERRIDE_ANDROID_RECOVERY := false
 TARGET_USES_QMAA_OVERRIDE_ANDROID_CORE := false
-TARGET_USES_QMAA_OVERRIDE_WLAN    := false
+TARGET_USES_QMAA_OVERRIDE_WLAN    := true
 TARGET_USES_QMAA_OVERRIDE_DPM  := false
 TARGET_USES_QMAA_OVERRIDE_BLUETOOTH   := false
 TARGET_USES_QMAA_OVERRIDE_FM  := false
@@ -232,10 +232,10 @@ ifeq ($(TARGET_USES_QMAA), true)
 ifneq ($(TARGET_USES_QMAA_OVERRIDE_WLAN), true)
 include device/qcom/wlan/default/wlan.mk
 else
-include device/qcom/wlan/taro/wlan.mk
+include device/qcom/wlan/kalama/wlan.mk
 endif
 else
-include device/qcom/wlan/taro/wlan.mk
+include device/qcom/wlan/kalama/wlan.mk
 endif
 
 #----------------------------------------------------------------------
