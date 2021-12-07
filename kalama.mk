@@ -427,21 +427,21 @@ ifeq (true,$(BUILDING_WITH_VSDK))
         # Vendor snapshot is disabled with VSDK
         BOARD_VNDK_VERSION := current
     else
-        BOARD_VNDK_VERSION := 32
+        BOARD_VNDK_VERSION := 33
     endif
 
     ifneq (,$(filter recovery,$(DISABLED_VSDK_SNAPSHOTS_LIST)))
         # Recovery snapshot is disabled with VSDK
         RECOVERY_SNAPSHOT_VERSION := current
     else
-        RECOVERY_SNAPSHOT_VERSION := 32
+        RECOVERY_SNAPSHOT_VERSION := 33
     endif
 
     ifneq (,$(filter ramdisk,$(DISABLED_VSDK_SNAPSHOTS_LIST)))
         # Ramdisk snapshot is disabled with VSDK
         RAMDISK_SNAPSHOT_VERSION := current
     else
-        RAMDISK_SNAPSHOT_VERSION := 32
+        RAMDISK_SNAPSHOT_VERSION := 33
     endif
 else
     BOARD_VNDK_VERSION := current
