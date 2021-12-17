@@ -359,6 +359,13 @@ DEVICE_MANIFEST_KALAMA_FILES := device/qcom/kalama/manifest_kalama.xml
 
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 
+# Enable Camera techpack with VSDK
+ifneq (,$(wildcard $(QCPATH)/chi-cdk))
+include $(QCPATH)/chi-cdk/configs/camera_techpack.mk
+else ifneq (,$(wildcard $(QCPATH)/camx/chi-cdk))
+include $(QCPATH)/camx/chi-cdk/configs/camera_techpack.mk)
+endif
+
 #Audio DLKM
 #AUDIO_DLKM := audio_apr.ko
 #AUDIO_DLKM += audio_q6_pdr.ko
