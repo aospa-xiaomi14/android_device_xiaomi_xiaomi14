@@ -60,6 +60,8 @@ else
 BOARD_ABL_SIMPLE := true
 endif
 
+NEED_AIDL_NDK_PLATFORM_BACKEND := true
+
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 
 # Set SYSTEMEXT_SEPARATE_PARTITION_ENABLE if was not already set (set earlier via build.sh).
