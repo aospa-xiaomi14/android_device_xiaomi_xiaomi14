@@ -348,7 +348,7 @@ AB_OTA_POSTINSTALL_CONFIG += \
 
 # Macro allows Camera module to use new service
 QTI_CAMERA_PROVIDER_SERVICE := 2.7
-QTI_CAMERA_AON_SERVICE := 1.1
+QTI_CAMERA_AON_SERVICE := 1.2
 
 DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/taro/framework_manifest.xml
 
