@@ -363,7 +363,7 @@ DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 ifneq (,$(wildcard $(QCPATH)/chi-cdk))
 include $(QCPATH)/chi-cdk/configs/camera_techpack.mk
 else ifneq (,$(wildcard $(QCPATH)/camx/chi-cdk))
-include $(QCPATH)/camx/chi-cdk/configs/camera_techpack.mk)
+include $(QCPATH)/camx/chi-cdk/configs/camera_techpack.mk
 endif
 
 #Audio DLKM
