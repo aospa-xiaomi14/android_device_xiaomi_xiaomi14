@@ -34,14 +34,10 @@
 firmware_directories /vendor/vm-system/
 
 # TrustedUI VM
-external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@e0b00000/firmware/trustedvm.mdt system "/vendor/bin/vmmgr -r"
-external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@e0b00000/firmware/trustedvm.b00 system "/vendor/bin/vmmgr -r"
-external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@e0b00000/firmware/trustedvm.b01 system "/vendor/bin/vmmgr -r"
-external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@e0b00000/firmware/trustedvm.b02 system "/vendor/bin/vmmgr -r"
-external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@e0b00000/firmware/trustedvm.b03 system "/vendor/bin/vmmgr -r"
-external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@e0b00000/firmware/trustedvm.b04 system "/vendor/bin/vmmgr -r"
-external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@e0b00000/firmware/trustedvm.b05 system "/vendor/bin/vmmgr -r"
-external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@e0b00000/firmware/trustedvm.b06 system "/vendor/bin/vmmgr -r"
-external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@e0b00000/firmware/trustedvm.b07 system "/vendor/bin/vmmgr -r"
-external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@e0b00000/firmware/trustedvm.b08 system "/vendor/bin/vmmgr -r"
-external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@e0b00000/firmware/trustedvm.b09 system "/vendor/bin/vmmgr -r"
+external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@f3c00000/firmware/trustedvm.mdt system "/vendor/bin/vmmgr -r"
+external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@f3c00000/firmware/trustedvm.b00 system "/vendor/bin/vmmgr -r"
+external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@f3c00000/firmware/trustedvm.b01 system "/vendor/bin/vmmgr -r"
+external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@f3c00000/firmware/trustedvm.b02 system "/vendor/bin/vmmgr -r"
+external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@f3c00000/firmware/trustedvm.b03 system "/vendor/bin/vmmgr -r"
+external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@f3c00000/firmware/trustedvm.b04 system "/vendor/bin/vmmgr -r"
+external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@f3c00000/firmware/trustedvm.b05 system "/vendor/bin/vmmgr -r"
