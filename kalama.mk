@@ -23,6 +23,10 @@ TARGET_CONSOLE_ENABLED := true
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
+# Set GRF/Vendor freeze properties
+BOARD_SHIPPING_API_LEVEL := 32
+BOARD_API_LEVEL := 32
+
 # Set SoC manufacturer property
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.soc.manufacturer=QTI
@@ -161,8 +165,8 @@ AEye\
 FDA\
 SnapdragonCamera\
 
-SHIPPING_API_LEVEL := 30
-PRODUCT_SHIPPING_API_LEVEL := 30
+SHIPPING_API_LEVEL := 32
+PRODUCT_SHIPPING_API_LEVEL := 32
 
 # Set kernel version and ion flags
 TARGET_KERNEL_VERSION := 5.15
@@ -412,7 +416,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 PRODUCT_VENDOR_MOVE_ENABLED := true
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
-BOARD_SYSTEMSDK_VERSIONS := 30
+BOARD_SYSTEMSDK_VERSIONS := 32
 
 DISABLED_VSDK_SNAPSHOTS_LIST := $(subst $(comma),$(space),$(DISABLED_VSDK_SNAPSHOTS))
 
