@@ -166,7 +166,7 @@ FDA\
 SnapdragonCamera\
 
 SHIPPING_API_LEVEL := 32
-PRODUCT_SHIPPING_API_LEVEL := 32
+PRODUCT_SHIPPING_API_LEVEL := 31
 
 # Set kernel version and ion flags
 TARGET_KERNEL_VERSION := 5.15
