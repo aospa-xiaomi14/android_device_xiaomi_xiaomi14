@@ -130,11 +130,11 @@ BOARD_BOOTCONFIG := androidboot.memcg=1 androidboot.usbcontroller=a600000.dwc3
 # false -- override kernel configuration to disable console
 # <blank> (default) -- use kernel default configuration
 ifeq ($(TARGET_CONSOLE_ENABLED),true)
-BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0x0099C000 msm_geni_serial.con_enabled=1
+BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 qcom_geni_serial.con_enabled=1
 BOARD_BOOTCONFIG += androidboot.console=ttyMSM0
 else
 ifeq ($(TARGET_CONSOLE_ENABLED),false)
-BOARD_KERNEL_CMDLINE += msm_geni_serial.con_enabled=0
+BOARD_KERNEL_CMDLINE += qcom_geni_serial.con_enabled=0
 endif
 endif
 
