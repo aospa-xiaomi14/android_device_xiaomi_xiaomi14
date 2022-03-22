@@ -352,7 +352,12 @@ TARGET_USES_IMAGE_GEN_TOOL := true
 
 # QCV allows multiple chipsets to be supported on a single vendor.
 # Add vintf device manifests for chipsets in taro QCV family below.
+ifeq ($(TARGET_USES_QMAA), true)
 TARGET_USES_QCV := false
+else
+TARGET_USES_QCV := true
+endif
+
 DEVICE_MANIFEST_SKUS := kalama
 DEVICE_MANIFEST_KALAMA_FILES := device/qcom/kalama/manifest_kalama.xml
 
