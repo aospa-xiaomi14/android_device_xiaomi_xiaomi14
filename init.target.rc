@@ -95,6 +95,9 @@ on property:ro.boot.product.vendor.sku=pineapple
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
+    #Execute virtualization manager
+    enable vendor.qvirtmgr
+    start  vendor.qvirtmgr
 
 on late-fs
     wait_for_prop hwservicemanager.ready true
@@ -194,7 +197,3 @@ service vendor.cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
 on early-boot && property:persist.vendor.pcie.boot_option=*
     write /sys/bus/platform/devices/1c00000.qcom,pcie/debug/boot_option ${persist.vendor.pcie.boot_option}
     write /sys/bus/platform/devices/1c08000.qcom,pcie/debug/boot_option ${persist.vendor.pcie.boot_option}
-
-on property:sys.boot_completed=1
-    enable vendor.qvirtmgr
-    start  vendor.qvirtmgr
