@@ -140,6 +140,7 @@ on init && property:ro.boot.mode=charger
 
 on charger
     start vendor.power_off_alarm
+    write /sys/kernel/cnss/charger_mode 1
 
 #service vendor.lowi /vendor/bin/sscrpcd
 #   class core
