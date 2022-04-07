@@ -6,20 +6,14 @@
 
 BOARD_SYSTEMSDK_VERSIONS := 32
 
-TARGET_BOARD_PLATFORM := kalama
-TARGET_BOOTLOADER_BOARD_NAME := kalama
+TARGET_BOARD_PLATFORM := pineapple
+TARGET_BOOTLOADER_BOARD_NAME := pineapple
 
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a-branchprot
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := kryo300
-
-TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-2a
-TARGET_2ND_CPU_ABI := armeabi-v7a
-TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := cortex-a75
 
 TARGET_NO_BOOTLOADER := false
 TARGET_USES_UEFI := true
@@ -29,7 +23,7 @@ TARGET_SIGNONLY_BOOTLOADER := true
 
 BOARD_RAMDISK_USE_LZ4 := true
 
--include $(QCPATH)/common/taro/BoardConfigVendor.mk
+-include $(QCPATH)/common/pineapple/BoardConfigVendor.mk
 
 SECTOOLS_SECURITY_PROFILE := $(QCPATH)/securemsm/security_profiles/kailua_tz_security_profile.xml
 
@@ -74,9 +68,9 @@ ifeq ($(ENABLE_AB), true)
 TARGET_NO_RECOVERY := true
 # Defines for enabling A/B builds
 AB_OTA_UPDATER := true
-TARGET_RECOVERY_FSTAB := device/qcom/taro/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/qcom/pineapple/recovery.fstab
 else
-TARGET_RECOVERY_FSTAB := device/qcom/taro/recovery_non_AB.fstab
+TARGET_RECOVERY_FSTAB := device/qcom/pineapple/recovery_non_AB.fstab
 BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 endif

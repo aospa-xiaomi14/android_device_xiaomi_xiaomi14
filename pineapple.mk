@@ -3,7 +3,7 @@ BUILD_BROKEN_DUP_RULES := true
 ALLOW_MISSING_DEPENDENCIES := true
 RELAX_USES_LIBRARY_CHECK := true
 
-TARGET_BOARD_PLATFORM := kalama
+TARGET_BOARD_PLATFORM := pineapple
 
 # Default Android A/B configuration
 ENABLE_AB ?= true
@@ -218,11 +218,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 ###########
 # Target naming
-PRODUCT_NAME := kalama
-PRODUCT_DEVICE := kalama
+PRODUCT_NAME := pineapple
+PRODUCT_DEVICE := pineapple
 PRODUCT_BRAND := qti
-PRODUCT_MODEL := Kalama for arm64
-
+PRODUCT_MODEL := Pineapple for arm64
 #----------------------------------------------------------------------
 # wlan specific
 #----------------------------------------------------------------------
@@ -262,7 +261,7 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 ###########
 # Target configurations
 
-QCOM_BOARD_PLATFORMS += kalama
+QCOM_BOARD_PLATFORMS += pineapple
 
 TARGET_USES_QSSI := true
 
@@ -345,21 +344,21 @@ AB_OTA_POSTINSTALL_CONFIG += \
 QTI_CAMERA_PROVIDER_SERVICE := 2.7
 QTI_CAMERA_AON_SERVICE := 1.2
 
-DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/taro/framework_manifest.xml
+DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/pineapple/framework_manifest.xml
 
 # Enable compilation of image_generation_tool
 TARGET_USES_IMAGE_GEN_TOOL := true
 
 # QCV allows multiple chipsets to be supported on a single vendor.
-# Add vintf device manifests for chipsets in taro QCV family below.
+# Add vintf device manifests for chipsets in pineapple QCV family below.
 ifeq ($(TARGET_USES_QMAA), true)
 TARGET_USES_QCV := false
 else
 TARGET_USES_QCV := true
 endif
 
-DEVICE_MANIFEST_SKUS := kalama
-DEVICE_MANIFEST_KALAMA_FILES := device/qcom/kalama/manifest_kalama.xml
+DEVICE_MANIFEST_SKUS := pineapple
+DEVICE_MANIFEST_PINEAPPLE_FILES := device/qcom/pineapple/manifest_pineapple.xml
 
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 

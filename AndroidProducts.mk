@@ -1,5 +1,5 @@
 PRODUCT_MAKEFILES := \
-   $(LOCAL_DIR)/kalama.mk
+   $(LOCAL_DIR)/pineapple.mk
 
 COMMON_LUNCH_CHOICES := \
-        kalama-userdebug
+        pineapple-userdebug
