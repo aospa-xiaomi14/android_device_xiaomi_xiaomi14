@@ -124,6 +124,7 @@ TARGET_USES_QMAA_OVERRIDE_SOTER := false
 TARGET_USES_QMAA_OVERRIDE_REMOTE_EFS := false
 TARGET_USES_QMAA_OVERRIDE_TFTP := false
 TARGET_USES_QMAA_OVERRIDE_EID := false
+TARGET_USES_QMAA_OVERRIDE_USB := false
 
 #Full QMAA HAL List
 QMAA_HAL_LIST := audio video camera display sensors gps
@@ -138,13 +139,6 @@ endif
 
 #Suppot to compile recovery without msm headers
 TARGET_HAS_GENERIC_KERNEL_HEADERS := true
-
-# Enable USB detection in QMAA mode
-ifeq ($(TARGET_USES_QMAA),true)
-ifeq ($(TARGET_USES_QMAA_RECOMMENDED_BOOT_CONFIG),true)
-PRODUCT_PACKAGES += init.qti.usb.qmaa.rc
-endif
-endif
 
 CLEAN_UP_JAVA_IN_VENDOR := warning
 
