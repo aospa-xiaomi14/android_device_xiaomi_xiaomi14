@@ -314,6 +314,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_HOST_PACKAGES += \
     configstore_xmlparser
 
+ifneq (,$(wildcard $(QCPATH)/vsdk-tools))
+PRODUCT_HOST_PACKAGES += \
+    install_vsdk_py2
+PRODUCT_HOST_PACKAGES += \
+    install_vsdk_py3
+PRODUCT_HOST_PACKAGES += \
+    vsdk-metadata
+endif
+
 # QRTR related packages
 PRODUCT_PACKAGES += qrtr-ns
 PRODUCT_PACKAGES += qrtr-lookup
