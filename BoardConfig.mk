@@ -18,6 +18,12 @@ TARGET_USES_REMOTEPROC := true
 TARGET_NO_KERNEL := false
 TARGET_SIGNONLY_BOOTLOADER := true
 
+ifeq ($(TARGET_NO_KERNEL), true)
+BOARD_PREBUILT_BOOTIMAGE := device/qcom/pineapple/boot.img
+BOOT_OS_VERSION = $(PLATFORM_VERSION_LAST_STABLE)
+BOOT_SECURITY_PATCH = $(PLATFORM_SECURITY_PATCH)
+endif
+
 BOARD_RAMDISK_USE_LZ4 := true
 
 -include $(QCPATH)/common/pineapple/BoardConfigVendor.mk
