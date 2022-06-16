@@ -6,6 +6,9 @@ BUILD_BROKEN_DUP_RULES := true
 ALLOW_MISSING_DEPENDENCIES := true
 RELAX_USES_LIBRARY_CHECK := true
 
+#Flag to Enable 64 bit only configuration
+TARGET_SUPPORTS_64_BIT_ONLY := true
+
 # Default Android A/B configuration
 ENABLE_AB ?= true
 
