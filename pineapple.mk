@@ -25,6 +25,9 @@ PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 #Enable vm support
 TARGET_ENABLE_VM_SUPPORT := true
 
+#Enable SMCI-Listeners.
+TARGET_ENABLE_SMCI_SYSLISTENER := true
+
 # true: earlycon and console enabled
 # false: console explicitly disabled
 # <empty>: default from kernel
