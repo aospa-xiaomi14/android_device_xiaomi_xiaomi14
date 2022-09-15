@@ -442,6 +442,8 @@ USE_LIB_PROCESS_GROUP := true
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
 
+# Dumpstate Feature Flag
+PRODUCT_ENABLE_DUMPSTATE_SUPPORT := true
 
 #Enable full treble flag
 PRODUCT_FULL_TREBLE_OVERRIDE := true
