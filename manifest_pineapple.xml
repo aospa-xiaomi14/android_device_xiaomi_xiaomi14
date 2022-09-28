@@ -449,6 +449,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
         <interface>
             <name>ISecureProcessor</name>
             <instance>qti-tee</instance>
+            <instance>qti-tvm</instance>
         </interface>
     </hal>
     <!-- bluetooth -->
