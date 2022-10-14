@@ -495,8 +495,15 @@ endif
 PRODUCT_BOOT_JARS += tcmiface
 PRODUCT_BOOT_JARS += telephony-ext
 PRODUCT_PACKAGES += telephony-ext
-
+ifeq ($(TARGET_USES_QMAA), true)
+ifneq ($(TARGET_USES_QMAA_OVERRIDE_ANDROID_CORE),true)
+PRODUCT_ENABLE_QESDK := false
+else
 PRODUCT_ENABLE_QESDK := true
+endif
+else
+PRODUCT_ENABLE_QESDK := true
+endif
 
 # Vendor property to enable advanced network scanning
 PRODUCT_PROPERTY_OVERRIDES += \
