@@ -112,7 +112,7 @@ TARGET_USES_QMAA_OVERRIDE_WFD     := false
 TARGET_USES_QMAA_OVERRIDE_GPS     := false
 TARGET_USES_QMAA_OVERRIDE_ANDROID_RECOVERY := false
 TARGET_USES_QMAA_OVERRIDE_ANDROID_CORE := true
-TARGET_USES_QMAA_OVERRIDE_WLAN    := false
+TARGET_USES_QMAA_OVERRIDE_WLAN    := true
 TARGET_USES_QMAA_OVERRIDE_BLUETOOTH   := false
 TARGET_USES_QMAA_OVERRIDE_FM  := false
 TARGET_USES_QMAA_OVERRIDE_CVP  := true
@@ -193,7 +193,7 @@ TARGET_KERNEL_DLKM_SECURE_MSM_OVERRIDE := true
 TARGET_KERNEL_DLKM_THERMAL_OVERRIDE := false
 TARGET_KERNEL_DLKM_TOUCH_OVERRIDE := false
 TARGET_KERNEL_DLKM_VIDEO_OVERRIDE := false
-TARGET_KERNEL_DLKM_WLAN_OVERRIDE := false
+TARGET_KERNEL_DLKM_WLAN_OVERRIDE := true
 TARGET_KERNEL_DLKM_MMRM_OVERRIDE := true
 TARGET_KERNEL_DLKM_DATARMNET_OVERRIDE := true
 TARGET_KERNEL_DLKM_DATARMNETEXT_OVERRIDE := true
@@ -264,10 +264,10 @@ ifeq ($(TARGET_USES_QMAA), true)
 ifneq ($(TARGET_USES_QMAA_OVERRIDE_WLAN), true)
 include device/qcom/wlan/default/wlan.mk
 else
-include device/qcom/wlan/kalama/wlan.mk
+include device/qcom/wlan/pineapple/wlan.mk
 endif
 else
-include device/qcom/wlan/kalama/wlan.mk
+include device/qcom/wlan/pineapple/wlan.mk
 endif
 
 #----------------------------------------------------------------------
