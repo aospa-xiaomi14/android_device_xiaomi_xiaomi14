@@ -204,8 +204,8 @@ TARGET_KERNEL_DLKM_DATAIPA_OVERRIDE := true
 PRODUCT_BUILD_ODM_IMAGE := true
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_PACKAGES += fastbootd
-# Add default implementation of fastboot HAL.
-PRODUCT_PACKAGES += android.hardware.fastboot@1.1-impl-mock
+# Add default implementation of fastboot AIDL.
+PRODUCT_PACKAGES += android.hardware.fastboot-service.example_recovery
 
 ifeq ($(ENABLE_AB),true)
 ifeq ($(SYSTEMEXT_SEPARATE_PARTITION_ENABLE), true)
