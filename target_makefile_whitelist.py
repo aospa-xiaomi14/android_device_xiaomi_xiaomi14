@@ -7,6 +7,10 @@ VENDOR_FAILED_FILEPATHS_WHITELIST = {
     "vendor/qcom/proprietary/camx/chi-cdk/configs/camera_techpack.mk",
     "vendor/qcom/vsdk_snapshots_config/config.mk",
     "vendor/qcom/proprietary/camx/chi-cdk/configs/product.mk",
+    "vendor/qcom/proprietary/prebuilt_grease/target/common/prebuilt.mk",
+    "vendor/qcom/proprietary/prebuilt_HY11/target/common/prebuilt.mk",
+    "vendor/qcom/proprietary/prebuilt_HY22/target/common/prebuilt.mk",
+
 }
 
 VENDOR_SHELL_WHITELIST = {
@@ -94,8 +98,10 @@ VENDOR_MACRO_WHITELIST = {
     "hardware/qcom/display/config/display-product.mk",
     "hardware/qcom/media/product.mk",
     "vendor/qcom/opensource/audio-hal/primary-hal/configs/pineapple/pineapple.mk",
+    "vendor/qcom/opensource/audio-kernel/audio_kernel_modules.mk",
     "vendor/qcom/opensource/audio-kernel/audio_kernel_product_board.mk",
     "vendor/qcom/opensource/bt-kernel/bt_kernel_vendor_board.mk",
+    "vendor/qcom/opensource/camera-kernel/board.mk",
     "vendor/qcom/opensource/commonsys/display/config/display-product-commonsys.mk",
     "vendor/qcom/opensource/data-ipa-cfg-mgr/ipacm_vendor_product.mk",
     "vendor/qcom/opensource/dataipa/dataipa_dlkm_vendor_board.mk",
@@ -138,14 +144,17 @@ VENDOR_MACRO_WHITELIST = {
     "vendor/qcom/proprietary/perf-core/configs/perf-core-product-vendor.mk",
     "vendor/qcom/proprietary/qcril-data-hal/datamodule/module/qcril-data-product.mk",
     "vendor/qcom/proprietary/qmi/qmi_data_vendor_product.mk",
+    "vendor/qcom/proprietary/securemsm/config/gp_vendor_proprietary_product.mk",
     "vendor/qcom/proprietary/securemsm-internal/securemsm_internal_vendor_product.mk",
     "vendor/qcom/proprietary/spu/config/spu_hal_vendor_proprietary_product.mk",
+    "vendor/qcom/proprietary/spu/config/spu_keymint_vendor_proprietary_product.mk",
     "vendor/qcom/proprietary/spu/spdaemon/src/spdaemon-product.mk",
     "vendor/qcom/proprietary/spu-internal/config/sp_hlos_tests_product.mk",
     "vendor/qcom/proprietary/stnfc-firmware/nfc_proprietary_product.mk",
     "vendor/qcom/proprietary/video/binship/media-product.mk",
     "vendor/qcom/proprietary/video/ship/video-vendor-modules.mk",
     "vendor/qcom/proprietary/vpp/config/vpp-vendor-board.mk",
+
 }
 
 VENDOR_OVERRIDE_WHITELIST = {
@@ -164,5 +173,7 @@ VENDOR_SOONG_WHITELIST = {
     "vendor/qcom/proprietary/cv/fastcv/cv_vendor_board.mk",
     "vendor/qcom/proprietary/perf-core/configs/perf-core-product-vendor.mk",
     "vendor/qcom/proprietary/chi-cdk/configs/product.mk",
+    "vendor/qcom/proprietary/techpack/artifacts/xr/config/xr-artifacts-product-proprietary.mk",
     "vendor/qcom/proprietary/video/ship/video-vendor-modules.mk",
+
 }
