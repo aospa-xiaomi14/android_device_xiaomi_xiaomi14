@@ -15,8 +15,9 @@ ENABLE_AB ?= true
 ENABLE_VIRTUAL_AB := true
 # Enable virtual A/B compression
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/android_t_baseline.mk)
-PRODUCT_VIRTUAL_AB_COMPRESSION_METHOD := gz
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/vabc_features.mk)
+PRODUCT_VIRTUAL_AB_COMPRESSION_METHOD := lz4
+PRODUCT_VENDOR_PROPERTIES += ro.virtual_ab.compression.threads=true
 
 # Enable debugfs restrictions
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
@@ -197,6 +198,7 @@ TARGET_KERNEL_DLKM_DATARMNET_OVERRIDE := true
 TARGET_KERNEL_DLKM_DATARMNETEXT_OVERRIDE := true
 TARGET_KERNEL_DLKM_SYNX_OVERRIDE := true
 TARGET_KERNEL_DLKM_DATAIPA_OVERRIDE := true
+TARGET_KERNEL_DLKM_FASTRPC_OVERRIDE := true
 
 #####Dynamic partition Handling
 ###
@@ -204,8 +206,8 @@ TARGET_KERNEL_DLKM_DATAIPA_OVERRIDE := true
 PRODUCT_BUILD_ODM_IMAGE := true
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_PACKAGES += fastbootd
-# Add default implementation of fastboot HAL.
-PRODUCT_PACKAGES += android.hardware.fastboot@1.1-impl-mock
+# Add default implementation of fastboot AIDL.
+PRODUCT_PACKAGES += android.hardware.fastboot-service.example_recovery
 
 ifeq ($(ENABLE_AB),true)
 ifeq ($(SYSTEMEXT_SEPARATE_PARTITION_ENABLE), true)
