@@ -89,8 +89,8 @@ on post-fs
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
     #Execute virtualization manager
-    enable vendor.qvirtservice
-    start  vendor.qvirtservice
+    enable vendor.qvirtservice_rs
+    start  vendor.qvirtservice_rs
 
 on late-fs
     wait_for_prop hwservicemanager.ready true
