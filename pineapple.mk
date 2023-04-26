@@ -541,6 +541,9 @@ PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
 PRODUCT_PROPERTY_OVERRIDES += \
      ro.mediaserver.64b.enable=true
 
+# Enable support for APEX updates
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
 ###################################################################################
 # This is the End of target.mk file.
 # Now, Pickup other split product.mk files:
