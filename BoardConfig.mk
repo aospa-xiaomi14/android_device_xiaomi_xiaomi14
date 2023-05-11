@@ -4,7 +4,7 @@
 #
 # TODO(b/124534788): Temporarily allow eng and debug LOCAL_MODULE_TAGS
 
-BOARD_SYSTEMSDK_VERSIONS := 33
+BOARD_SYSTEMSDK_VERSIONS := 34
 
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a-branchprot
