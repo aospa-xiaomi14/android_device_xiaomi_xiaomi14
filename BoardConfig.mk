@@ -155,6 +155,9 @@ BOARD_KERNEL_CMDLINE += qcom_geni_serial.con_enabled=0
 endif
 endif
 
+#Enabling Protected VM for AVF
+BOARD_BOOTCONFIG += androidboot.hypervisor.protected_vm.supported=true
+
 BOARD_KERNEL_CMDLINE += $(file < device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/extra_cmdline)
 
 BOARD_KERNEL_BASE        := 0x00000000
