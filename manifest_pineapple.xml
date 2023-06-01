@@ -70,6 +70,14 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
             <instance>dspservice</instance>
         </interface>
     </hal>
+    <hal format="aidl">
+        <name>android.hardware.gatekeeper</name>
+        <version>1</version>
+        <interface>
+            <name>IGatekeeper</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <!-- NFC HAL service -->
     <hal format="aidl">
         <name>android.hardware.nfc</name>
