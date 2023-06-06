@@ -115,13 +115,6 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
             <instance>default</instance>
         </interface>
     </hal>
-    <!-- IRADIO -->
-    <hal>
-      <name>android.hardware.radio</name>
-      <transport>hwbinder</transport>
-      <fqname>@1.2::ISap/slot1</fqname>
-      <fqname>@1.2::ISap/slot2</fqname>
-    </hal>
     <!-- dpm QMI hal service -->
     <hal format="hidl">
         <name>com.qualcomm.qti.dpm.api</name>
