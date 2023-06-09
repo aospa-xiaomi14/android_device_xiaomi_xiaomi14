@@ -28,7 +28,7 @@ BOARD_RAMDISK_USE_LZ4 := true
 
 -include $(QCPATH)/common/pineapple/BoardConfigVendor.mk
 
-SECTOOLS_SECURITY_PROFILE := $(QCPATH)/securemsm/security_profiles/pineapple_tz_security_profile.xml
+SECTOOLS_SECURITY_PROFILE := $(QCPATH)/securemsm/security_profiles/pineapple_tz_security_profile.xml $(QCPATH)/securemsm/security_profiles/cliffs_tz_security_profile.xml
 
 USE_OPENGL_RENDERER := true
 
