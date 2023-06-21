@@ -36,8 +36,11 @@ TARGET_CONSOLE_ENABLED ?=
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # Set GRF/Vendor freeze properties
-BOARD_SHIPPING_API_LEVEL := 33
-BOARD_API_LEVEL := 33
+BOARD_SHIPPING_API_LEVEL := 34
+BOARD_API_LEVEL := 34
+
+# Opt out of 16K alignment changes
+PRODUCT_MAX_PAGE_SIZE_SUPPORTED := 4096
 
 # Set SoC manufacturer property
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -169,8 +172,8 @@ AEye\
 AON\
 SnapdragonCamera\
 
-SHIPPING_API_LEVEL := 33
-PRODUCT_SHIPPING_API_LEVEL := 33
+SHIPPING_API_LEVEL := 34
+PRODUCT_SHIPPING_API_LEVEL := 34
 
 # Set kernel version and ion flags
 TARGET_KERNEL_VERSION := 5.15
@@ -461,7 +464,7 @@ PRODUCT_ENABLE_DUMPSTATE_SUPPORT := true
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 PRODUCT_VENDOR_MOVE_ENABLED := true
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
-BOARD_SYSTEMSDK_VERSIONS := 33
+BOARD_SYSTEMSDK_VERSIONS := 34
 
 ifeq (true,$(BUILDING_WITH_VSDK))
     ALLOW_MISSING_DEPENDENCIES := true
@@ -540,6 +543,16 @@ PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
 # Mediaserver 64 Bit enable
 PRODUCT_PROPERTY_OVERRIDES += \
      ro.mediaserver.64b.enable=true
+
+# Enable support for APEX updates
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
+ifneq ($(TARGET_USES_QMAA), true)
+ifeq ($(TARGET_USES_QMAA_OVERRIDE_ANDROID_CORE),true)
+#enable virtualization service
+$(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk)
+endif
+endif
 
 ###################################################################################
 # This is the End of target.mk file.

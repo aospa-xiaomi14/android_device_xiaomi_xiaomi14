@@ -4,7 +4,7 @@
 #
 # TODO(b/124534788): Temporarily allow eng and debug LOCAL_MODULE_TAGS
 
-BOARD_SYSTEMSDK_VERSIONS := 33
+BOARD_SYSTEMSDK_VERSIONS := 34
 
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a-branchprot
@@ -154,6 +154,11 @@ ifeq ($(TARGET_CONSOLE_ENABLED),false)
 BOARD_KERNEL_CMDLINE += qcom_geni_serial.con_enabled=0
 endif
 endif
+
+#Enabling Protected VM for AVF
+BOARD_BOOTCONFIG += androidboot.hypervisor.protected_vm.supported=true
+
+BOARD_KERNEL_CMDLINE += $(file < device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/extra_cmdline)
 
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
