@@ -105,16 +105,6 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
         <version>1</version>
         <fqname>ISecureElement/eSE1</fqname>
     </hal>
-    <!-- QSEECom HAL service -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.qseecom</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IQSEECom</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <!-- dpm QMI hal service -->
     <hal format="hidl">
         <name>com.qualcomm.qti.dpm.api</name>
