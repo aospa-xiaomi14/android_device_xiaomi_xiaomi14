@@ -89,17 +89,6 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
         <version>1</version>
         <fqname>INxpNfc/default</fqname>
     </hal>
-    <!-- secure element -->
-    <hal format="hidl">
-       <name>android.hardware.secure_element</name>
-       <transport>hwbinder</transport>
-       <version>1.2</version>
-       <interface>
-           <name>ISecureElement</name>
-           <instance>SIM1</instance>
-           <instance>SIM2</instance>
-       </interface>
-    </hal>
     <hal format="aidl">
         <name>android.hardware.secure_element</name>
         <version>1</version>
