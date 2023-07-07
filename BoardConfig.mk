@@ -28,7 +28,7 @@ BOARD_RAMDISK_USE_LZ4 := true
 
 -include $(QCPATH)/common/pineapple/BoardConfigVendor.mk
 
-SECTOOLS_SECURITY_PROFILE := $(QCPATH)/securemsm/security_profiles/pineapple_tz_security_profile.xml
+SECTOOLS_SECURITY_PROFILE := $(QCPATH)/securemsm/security_profiles/pineapple_tz_security_profile.xml $(QCPATH)/securemsm/security_profiles/cliffs_tz_security_profile.xml
 
 USE_OPENGL_RENDERER := true
 
@@ -159,6 +159,7 @@ endif
 BOARD_BOOTCONFIG += androidboot.hypervisor.protected_vm.supported=true
 
 BOARD_KERNEL_CMDLINE += $(file < device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/extra_cmdline)
+BOARD_BOOTCONFIG += $(file < device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/extra_bootconfig)
 
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
