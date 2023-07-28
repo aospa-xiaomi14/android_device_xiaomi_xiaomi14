@@ -32,6 +32,9 @@ SECTOOLS_SECURITY_PROFILE := $(QCPATH)/securemsm/security_profiles/pineapple_tz_
 
 USE_OPENGL_RENDERER := true
 
+# Build AVF debug policy device tree overlay image
+PRODUCT_BUILD_DPM_IMAGE := true
+
 # TODO: Enable it back when we have a path forward
 # Disable generation of dtbo.img
 BOARD_KERNEL_SEPARATED_DTBO := false
