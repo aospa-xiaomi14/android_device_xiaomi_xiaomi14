@@ -540,6 +540,8 @@ PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
                           dynamic_memcpy_prebuilt
 ##Armv9-Tests##
 
+PRODUCT_PACKAGES_DEBUG += thermal-test-client
+
 # Mediaserver 64 Bit enable
 PRODUCT_PROPERTY_OVERRIDES += \
      ro.mediaserver.64b.enable=true
