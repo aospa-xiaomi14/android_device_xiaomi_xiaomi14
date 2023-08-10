@@ -534,6 +534,8 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/ueventd-odm.rc:$(TARGET_COPY_OUT_ODM)/etc/ue
 PRODUCT_PACKAGES += vmmgr vmmgr.rc vmmgr.conf
 endif
 
+#qspa service
+PRODUCT_PACKAGES += vendor.qti.qspa-service qspa-testclient
 
 ##Armv9-Tests##
 PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
