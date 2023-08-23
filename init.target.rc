@@ -72,6 +72,11 @@ on init
     chown system system /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
     chmod 0660 /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
     start logd
+    mkdir /dev/cpuctl/general
+    copy_per_line /dev/cpuctl/tasks /dev/cpuctl/general/tasks
+    chown system system /dev/cpuctl/general
+    chown system system /dev/cpuctl/general/tasks
+    chmod 0644 /dev/cpuctl/general/tasks
 
 on early-fs
     start vold
