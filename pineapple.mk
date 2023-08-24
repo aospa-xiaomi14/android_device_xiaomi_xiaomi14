@@ -145,6 +145,7 @@ TARGET_USES_QMAA_OVERRIDE_DIAG := true
 TARGET_USES_QMAA_OVERRIDE_FTM := true
 TARGET_USES_QMAA_OVERRIDE_VIBRATOR := true
 TARGET_USES_QMAA_OVERRIDE_FASTRPC := true
+TARGET_USES_QMAA_OVERRIDE_SPU := true
 
 #Full QMAA HAL List
 QMAA_HAL_LIST := audio video camera display sensors gps
@@ -202,6 +203,7 @@ TARGET_KERNEL_DLKM_DATARMNETEXT_OVERRIDE := true
 TARGET_KERNEL_DLKM_SYNX_OVERRIDE := true
 TARGET_KERNEL_DLKM_DATAIPA_OVERRIDE := true
 TARGET_KERNEL_DLKM_FASTRPC_OVERRIDE := true
+TARGET_KERNEL_DLKM_SPU_OVERRIDE := true
 
 #####Dynamic partition Handling
 ###
@@ -532,6 +534,8 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/ueventd-odm.rc:$(TARGET_COPY_OUT_ODM)/etc/ue
 PRODUCT_PACKAGES += vmmgr vmmgr.rc vmmgr.conf
 endif
 
+#qspa service
+PRODUCT_PACKAGES += vendor.qti.qspa-service qspa-testclient
 
 ##Armv9-Tests##
 PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
