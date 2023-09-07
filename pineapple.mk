@@ -560,6 +560,10 @@ $(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk
 endif
 endif
 
+TARGET_BUILD_WIDEVINE := nonupdatable
+TARGET_BUILD_WIDEVINE_USE_PREBUILT := true
+include vendor/widevine/libwvdrmengine/apex/device/device.mk
+
 ###################################################################################
 # This is the End of target.mk file.
 # Now, Pickup other split product.mk files:
