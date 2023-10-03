@@ -405,8 +405,9 @@ else
 TARGET_USES_QCV := true
 endif
 
-DEVICE_MANIFEST_SKUS := pineapple
+DEVICE_MANIFEST_SKUS := pineapple cliffs
 DEVICE_MANIFEST_PINEAPPLE_FILES := device/qcom/pineapple/manifest_pineapple.xml
+DEVICE_MANIFEST_CLIFFS_FILES := device/qcom/pineapple/manifest_cliffs.xml
 
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 
