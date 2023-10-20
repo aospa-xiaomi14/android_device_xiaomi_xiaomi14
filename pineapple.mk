@@ -256,6 +256,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.beluga.s=0x900 \
     ro.vendor.beluga.t=0x240
 
+# Below perf props should be part of vendor/build.prop
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.extension_library=libqti-perfd-client.so \
+    ro.vendor.perf-hal.ver=3.0 \
+    ro.vendor.perf.scroll_opt=1 \
+    vendor.perf.framepacing.enable=1
+
 ###########
 # Target naming
 PRODUCT_NAME := pineapple
