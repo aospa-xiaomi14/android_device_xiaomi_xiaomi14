@@ -56,7 +56,7 @@ VENDOR_SHELL_WHITELIST = {
     "vendor/qcom/proprietary/wigig/wigig_product.mk",
     "vendor/qcom/proprietary/wlan/utils/halproxydaemon/Android.mk",
     "vendor/qcom/proprietary/wlan/utils/qsh_wifi_test/Android.mk",
-
+    "vendor/qcom/proprietary/commonsys/openclwrapper/Android.mk",
 
 }
 
@@ -95,6 +95,7 @@ VENDOR_FOREACH_WHITELIST = {
     "vendor/qcom/proprietary/bluetooth/build/bt-vendor-proprietary-product.mk",
     "vendor/qcom/proprietary/perf-core/profiles.mk",
     "vendor/qcom/proprietary/video/ship/video-vendor-modules.mk",
+    "vendor/qcom/proprietary/common-noship/build/generate_extra_images_prop.mk",
     "vendor/qcom/proprietary/common/config/device-vendor-SDM845-pureAOSP.mk",
     "vendor/qcom/proprietary/common/config/device-vendor-qssi.mk",
 }
