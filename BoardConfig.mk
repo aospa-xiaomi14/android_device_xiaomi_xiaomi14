@@ -161,6 +161,9 @@ endif
 #Enabling Protected VM for AVF
 BOARD_BOOTCONFIG += androidboot.hypervisor.protected_vm.supported=true
 
+#Enabling QSPA
+BOARD_BOOTCONFIG += androidboot.vendor.qspa=true
+
 BOARD_KERNEL_CMDLINE += $(file < device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/extra_cmdline)
 BOARD_BOOTCONFIG += $(file < device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/extra_bootconfig)
 
