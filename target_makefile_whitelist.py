@@ -56,13 +56,14 @@ VENDOR_SHELL_WHITELIST = {
     "vendor/qcom/proprietary/wigig/wigig_product.mk",
     "vendor/qcom/proprietary/wlan/utils/halproxydaemon/Android.mk",
     "vendor/qcom/proprietary/wlan/utils/qsh_wifi_test/Android.mk",
-
+    "vendor/qcom/proprietary/commonsys/openclwrapper/Android.mk",
 
 }
 
 VENDOR_RM_WHITELIST = {
     "vendor/qcom/proprietary/biometrics/fingerprint/QFPCalibration/Android.mk",
     "vendor/qcom/proprietary/biometrics/fingerprint/QFingerprintService/Android.mk",
+    "vendor/qcom/proprietary/common/scripts/Android.mk",
 }
 
 VENDOR_LOCAL_COPY_HEADERS_WHITELIST = {}
@@ -72,7 +73,11 @@ VENDOR_DATETIME_WHITELIST = {
     "vendor/qcom/proprietary/qvr-vndr/tools/qvrdatalogger/Android.mk",
 }
 
-VENDOR_TARGET_PRODUCT_WHITELIST = {}
+VENDOR_TARGET_PRODUCT_WHITELIST = {
+    "vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk",
+    "vendor/qcom/opensource/core-utils/build/build.sh",
+    "vendor/qcom/opensource/core-utils/build/build_image_standalone.py",
+}
 
 VENDOR_RECURSIVE_WHITELIST = {}
 
@@ -90,7 +95,9 @@ VENDOR_FOREACH_WHITELIST = {
     "vendor/qcom/proprietary/bluetooth/build/bt-vendor-proprietary-product.mk",
     "vendor/qcom/proprietary/perf-core/profiles.mk",
     "vendor/qcom/proprietary/video/ship/video-vendor-modules.mk",
-
+    "vendor/qcom/proprietary/common-noship/build/generate_extra_images_prop.mk",
+    "vendor/qcom/proprietary/common/config/device-vendor-SDM845-pureAOSP.mk",
+    "vendor/qcom/proprietary/common/config/device-vendor-qssi.mk",
 }
 
 VENDOR_MACRO_WHITELIST = {
