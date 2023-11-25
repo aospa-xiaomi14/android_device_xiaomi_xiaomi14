@@ -545,6 +545,8 @@ endif
 #qspa service
 PRODUCT_PACKAGES += vendor.qti.qspa-service qspa-testclient
 
+PRODUCT_PACKAGES += qspa.rc
+
 ##Armv9-Tests##
 PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
                           pac_test \
