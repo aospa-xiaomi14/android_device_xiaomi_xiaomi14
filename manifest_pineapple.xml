@@ -300,12 +300,4 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="aidl" >
-        <name>vendor.qti.qepi</name>
-        <version>1</version>
-        <interface>
-            <name>IQEPI</name>
-            <instance>qepi</instance>
-        </interface>
-    </hal>
 </manifest>
