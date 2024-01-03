@@ -232,15 +232,6 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
             <instance>wifiStats</instance>
         </interface>
     </hal>
-    <!-- Trusted UI HAL Service -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.trustedui</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.2::ITrustedUI/default</fqname>
-        <fqname>@1.2::ITrustedUI/qtee-vm</fqname>
-        <fqname>@1.1::ITrustedInput/default</fqname>
-        <fqname>@1.1::ITrustedInput/qtee-vm</fqname>
-    </hal>
     <!-- BluetoothSar service-->
     <hal format="hidl">
         <name>vendor.qti.hardware.bluetooth_sar</name>
@@ -248,33 +239,6 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
         <version>1.1</version>
         <interface>
             <name>IBluetoothSar</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <!-- SPU service-->
-    <hal format="hidl">
-        <name>vendor.qti.spu</name>
-        <transport>hwbinder</transport>
-        <version>1.1</version>
-        <interface>
-            <name>ISPUManager</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.spu</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>ISPUManager</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl" optional="true">
-        <name>vendor.qti.hardware.spu</name>
-        <version>2</version>
-        <interface>
-            <name>ISPUManager</name>
             <instance>default</instance>
         </interface>
     </hal>
