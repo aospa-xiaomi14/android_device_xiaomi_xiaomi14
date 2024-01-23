@@ -94,16 +94,6 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
         <version>1</version>
         <fqname>ISecureElement/eSE1</fqname>
     </hal>
-    <!-- dpm QMI hal service -->
-    <hal format="hidl">
-        <name>com.qualcomm.qti.dpm.api</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IdpmQmi</name>
-            <instance>dpmQmiService</instance>
-        </interface>
-    </hal>
 
    <!-- IMS UCE Service -->
    <hal format="hidl">
@@ -133,15 +123,6 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
        <interface>
          <name>IImsCmService</name>
          <instance>qti.ims.connectionmanagerservice</instance>
-       </interface>
-   </hal>
-   <hal format="hidl">
-       <name>vendor.qti.ims.factory</name>
-       <transport>hwbinder</transport>
-       <version>1.1</version>
-       <interface>
-         <name>IImsFactory</name>
-         <instance>default</instance>
        </interface>
    </hal>
     <hal format="hidl">
