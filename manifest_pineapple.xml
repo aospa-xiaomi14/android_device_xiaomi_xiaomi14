@@ -125,6 +125,15 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
          <instance>qti.ims.connectionmanagerservice</instance>
        </interface>
    </hal>
+   <hal format="hidl">
+       <name>vendor.qti.ims.factory</name>
+       <transport>hwbinder</transport>
+       <version>1.1</version>
+       <interface>
+         <name>IImsFactory</name>
+         <instance>default</instance>
+       </interface>
+   </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.cacert</name>
         <transport>hwbinder</transport>
