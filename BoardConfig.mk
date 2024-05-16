@@ -18,17 +18,7 @@ TARGET_USES_REMOTEPROC := true
 TARGET_NO_KERNEL := false
 TARGET_SIGNONLY_BOOTLOADER := true
 
-ifeq ($(TARGET_NO_KERNEL), true)
-BOARD_PREBUILT_BOOTIMAGE := device/qcom/pineapple/boot.img
-BOOT_OS_VERSION = $(PLATFORM_VERSION_LAST_STABLE)
-BOOT_SECURITY_PATCH = $(PLATFORM_SECURITY_PATCH)
-endif
-
 BOARD_RAMDISK_USE_LZ4 := true
-
--include $(QCPATH)/common/pineapple/BoardConfigVendor.mk
-
-SECTOOLS_SECURITY_PROFILE := $(QCPATH)/securemsm/security_profiles/pineapple_tz_security_profile.xml $(QCPATH)/securemsm/security_profiles/cliffs_tz_security_profile.xml
 
 USE_OPENGL_RENDERER := true
 
@@ -41,19 +31,13 @@ BOARD_KERNEL_SEPARATED_DTBO := false
 
 ### Dynamic partition Handling
 # Define the Dynamic Partition sizes and groups.
-ifeq ($(ENABLE_AB), true)
-    ifeq ($(ENABLE_VIRTUAL_AB), true)
-        BOARD_SUPER_PARTITION_SIZE := 6442450944
-    else
-        BOARD_SUPER_PARTITION_SIZE := 12884901888
-    endif
-else
-        BOARD_SUPER_PARTITION_SIZE := 6442450944
-endif
+BOARD_SUPER_PARTITION_SIZE := 6442450944
+
 ifeq ($(BOARD_KERNEL_SEPARATED_DTBO),true)
     # Enable DTBO for recovery image
     BOARD_INCLUDE_RECOVERY_DTBO := true
 endif
+
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 6438256640
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := vendor vendor_dlkm system_dlkm odm
@@ -61,25 +45,24 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x06400000
 
 TARGET_COPY_OUT_ODM := odm
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
-ifeq ($(ENABLE_AB), true)
-ifeq ($(BOARD_AVB_ENABLE),true)
-AB_OTA_PARTITIONS ?= boot init_boot vendor_boot recovery vendor vendor_dlkm system_dlkm odm dtbo vbmeta
-else
-AB_OTA_PARTITIONS ?= boot init_boot vendor_boot recovery vendor vendor_dlkm system_dlkm odm dtbo
-endif
-endif
+AB_OTA_PARTITIONS ?= \
+    boot \
+    init_boot \
+    vendor_boot \
+    recovery \
+    vendor \
+    vendor_dlkm \
+    system_dlkm \
+    odm \
+    dtbo \
+    vbmeta
+
 BOARD_EXT4_SHARE_DUP_BLOCKS := true
 
-ifeq ($(ENABLE_AB), true)
 TARGET_NO_RECOVERY := true
 # Defines for enabling A/B builds
 AB_OTA_UPDATER := true
-TARGET_RECOVERY_FSTAB := device/qcom/pineapple/recovery.fstab
-else
-TARGET_RECOVERY_FSTAB := device/qcom/pineapple/recovery_non_AB.fstab
-BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-endif
+TARGET_RECOVERY_FSTAB := device/xiaomi/xiaomi14/recovery.fstab
 
 ifeq ($(BOARD_AVB_ENABLE), true)
     BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
@@ -181,11 +164,9 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 
 BOARD_USES_GENERIC_AUDIO := true
-BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_NO_RPC := true
 
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
-TARGET_INIT_VENDOR_LIB := libinit_msm
 
 #Disable appended dtb.
 TARGET_KERNEL_APPEND_DTB := false
@@ -220,10 +201,6 @@ ifeq ($(HOST_OS),linux)
       endif
     endif
 endif
-
-#Add non-hlos files to ota packages
-ADD_RADIO_FILES := true
-
 
 # Enable sensor multi HAL
 USE_SENSOR_MULTI_HAL := true
