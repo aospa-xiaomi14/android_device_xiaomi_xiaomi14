@@ -1,3 +1,6 @@
+# Vendor blobs
+$(call inherit-product, vendor/xiaomi/xiaomi14/xiaomi14-vendor.mk)
+
 TARGET_BOARD_PLATFORM := pineapple
 TARGET_BOOTLOADER_BOARD_NAME := pineapple
 
