@@ -280,6 +280,10 @@ PRODUCT_PACKAGES += vendor.qti.qspa-service qspa-testclient
 
 PRODUCT_PACKAGES += qspa_vendor.rc
 
+# Soong
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
+
 # Enable support for APEX updates
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
