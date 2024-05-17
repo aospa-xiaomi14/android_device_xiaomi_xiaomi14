@@ -199,7 +199,8 @@ BOARD_API_LEVEL := 34
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
+    hardware/xiaomi
 
 # SystemExt
 SYSTEMEXT_SEPARATE_PARTITION_ENABLE := true
