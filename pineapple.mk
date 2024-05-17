@@ -66,9 +66,6 @@ NEED_AIDL_NDK_PLATFORM_BACKEND := true
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/charger_fw_fstab.qti:$(TARGET_COPY_OUT_VENDOR)/etc/charger_fw_fstab.qti
 
-# Common
-$(call inherit-product, device/qcom/vendor-common/common64.mk)
-
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
