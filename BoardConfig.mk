@@ -1,3 +1,7 @@
+#
+# Copyright (c) 2024 StatiXOS
+#
+
 # config.mk
 #
 # Product-specific compile-time definitions.

@@ -1,3 +1,7 @@
+#
+# Copyright (c) 2024 StatiXOS
+#
+
 # Vendor blobs
 $(call inherit-product, vendor/xiaomi/xiaomi14/xiaomi14-vendor.mk)
 
