@@ -1,3 +1,7 @@
+#
+# Copyright (c) 2024 Paranoid Android
+#
+
 # config.mk
 #
 # Product-specific compile-time definitions.

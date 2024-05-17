@@ -1,3 +1,7 @@
+#
+# Copyright (c) 2024 Paranoid Android
+#
+
 # Vendor blobs
 $(call inherit-product, vendor/xiaomi/xiaomi14/xiaomi14-vendor.mk)
 
