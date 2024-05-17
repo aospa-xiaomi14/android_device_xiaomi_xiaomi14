@@ -6,15 +6,18 @@
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS ?= \
     boot \
-    init_boot \
-    vendor_boot \
-    recovery \
-    vendor \
-    vendor_dlkm \
-    system_dlkm \
-    odm \
     dtbo \
-    vbmeta
+    init_boot \
+    odm \
+    product \
+    recovery \
+    system \
+    system_dlkm \
+    system_ext \
+    vbmeta \
+    vendor \
+    vendor_boot \
+    vendor_dlkm
 
 # Architecture
 TARGET_ARCH := arm64
@@ -134,7 +137,14 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x06400000
 BOARD_SUPER_PARTITION_SIZE := 8321499136
 BOARD_SUPER_PARTITION_GROUPS := xiaomi_dynamic_partitions
 BOARD_XIAOMI_DYNAMIC_PARTITIONS_SIZE := 8317304832
-BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := vendor vendor_dlkm system_dlkm odm
+BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := \
+    odm \
+    product \
+    system \
+    system_dlkm \
+    system_ext \
+    vendor \
+    vendor_dlkm
 
 # System DLKM
 BOARD_SYSTEM_DLKMIMAGE_FILE_SYSTEM_TYPE := ext4
