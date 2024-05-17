@@ -11,7 +11,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := init.target.rc
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := init/$(LOCAL_MODULE)
+LOCAL_SRC_FILES    := init/init.target.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
@@ -24,10 +24,10 @@ LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE       := init/charger_fw_fstab.qti
+LOCAL_MODULE       := charger_fw_fstab.qti
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := charger_fw_fstab.qti
+LOCAL_SRC_FILES    := init/charger_fw_fstab.qti
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)
 include $(BUILD_PREBUILT)
 
@@ -41,6 +41,5 @@ include vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk
 #----------------------------------------------------------------------
 # wlan specific
 #----------------------------------------------------------------------
-ifeq ($(strip $(BOARD_HAS_QCOM_WLAN)),true)
 include device/qcom/wlan/pineapple/AndroidBoardWlan.mk
-endif
+
