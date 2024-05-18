@@ -186,6 +186,23 @@ PRODUCT_PACKAGES += \
     qspa_vendor.rc \
     vendor.qti.qspa-service
 
+# QTI components
+TARGET_COMMON_QTI_COMPONENTS := \
+    adreno \
+    alarm \
+    audio \
+    av \
+    bt \
+    display \
+    gps \
+    init \
+    overlay \
+    perf \
+    telephony \
+    usb \
+    wfd \
+    wlan
+
 # RRO configuration
 TARGET_USES_RRO := true
 
