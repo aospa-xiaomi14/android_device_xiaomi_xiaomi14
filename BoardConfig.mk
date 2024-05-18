@@ -233,7 +233,11 @@ DEVICE_MATRIX_FILE := device/xiaomi/xiaomi14/configs/vintf/compatibility_matrix.
 BOARD_BOOTCONFIG += androidboot.hypervisor.protected_vm.supported=true
 
 # Wlan
-include device/qcom/wlan/pineapple/BoardConfigWlan.mk
+WIFI_DRIVER_STATE_CTRL_PARAM := "/dev/wlan"
+WIFI_DRIVER_STATE_ON := "ON"
+WIFI_DRIVER_STATE_OFF := "OFF"
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB_EVENT := "ON"
+BOARD_HOSTAPD_PRIVATE_LIB_EVENT := "ON"
 
 #################################################################################
 # This is the End of BoardConfig.mk file.
