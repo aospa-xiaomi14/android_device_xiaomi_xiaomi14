@@ -38,8 +38,3 @@ include device/qcom/vendor-common/MergeConfig.mk
 #----------------------------------------------------------------------
 include vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk
 
-#----------------------------------------------------------------------
-# wlan specific
-#----------------------------------------------------------------------
-include device/qcom/wlan/pineapple/AndroidBoardWlan.mk
-
