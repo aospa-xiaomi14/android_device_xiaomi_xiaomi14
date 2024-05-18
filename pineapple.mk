@@ -106,6 +106,7 @@ PRODUCT_COPY_FILES += \
 
 # Kernel
 TARGET_KERNEL_VERSION := 6.1
+KERNEL_PREBUILT_DIR := device/xiaomi/xiaomi14-kernel
 
 # MIDI feature
 PRODUCT_COPY_FILES += \
