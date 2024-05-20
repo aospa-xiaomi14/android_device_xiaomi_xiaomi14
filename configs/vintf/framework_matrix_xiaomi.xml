@@ -1,0 +1,51 @@
+<compatibility-matrix version="7.0" type="framework">
+    <hal format="aidl" optional="true">
+        <name>vendor.rongcard.eid</name>
+        <interface>
+            <name>IEidDeviceAidl</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.aidl.mtdservice</name>
+        <interface>
+            <name>IMTService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.aidl.tidaservice</name>
+        <interface>
+            <name>ITidaService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.mfidoca</name>
+        <interface>
+            <name>IFidoService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.mlipay</name>
+        <interface>
+            <name>IMlipayService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.otrpagent2</name>
+        <interface>
+            <name>IOTrPAgent</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.vsimapp</name>
+        <interface>
+            <name>IVSIMService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</compatibility-matrix>
