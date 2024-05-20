@@ -137,7 +137,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so \
     ro.vendor.perf-hal.ver=3.0 \
-    ro.vendor.perf.scroll_opt=1 \
     vendor.perf.framepacing.enable=1
 
 # Incremental fs
