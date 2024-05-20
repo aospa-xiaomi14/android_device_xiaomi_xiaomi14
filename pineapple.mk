@@ -122,10 +122,6 @@ TARGET_DISABLE_PERF_OPTIMIZATIONS := false
 USE_LIB_PROCESS_GROUP := true
 
 #### Props ####
-# SoC
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.soc.manufacturer=QTI
-
 # privapp-permissions whitelisting (To Fix CTS :privappPermissionsMustBeEnforced)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.control_privapp_permissions=enforce
