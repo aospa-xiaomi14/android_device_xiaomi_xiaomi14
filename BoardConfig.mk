@@ -228,6 +228,8 @@ DEVICE_MANIFEST_SKUS := pineapple cliffs
 DEVICE_MANIFEST_PINEAPPLE_FILES := device/xiaomi/xiaomi14/configs/vintf/manifest_pineapple.xml
 DEVICE_MANIFEST_CLIFFS_FILES := device/xiaomi/xiaomi14/configs/vintf/manifest_cliffs.xml
 DEVICE_MATRIX_FILE := device/xiaomi/xiaomi14/configs/vintf/compatibility_matrix.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
+    device/xiaomi/xiaomi14/configs/vintf/framework_matrix_xiaomi.xml
 
 # VM
 BOARD_BOOTCONFIG += androidboot.hypervisor.protected_vm.supported=true
