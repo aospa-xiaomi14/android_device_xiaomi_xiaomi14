@@ -71,6 +71,9 @@ ifeq ($(HOST_OS),linux)
     endif
 endif
 
+# Display
+SOONG_CONFIG_qtidisplay_ubwcp_headers := false
+
 # Graphics
 USE_OPENGL_RENDERER := true
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
