@@ -104,6 +104,9 @@ TARGET_USES_NEW_ION := true
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
 
+PRODUCT_PACKAGES += \
+    init.target.rc
+
 # Kernel
 TARGET_KERNEL_VERSION := 6.1
 KERNEL_PREBUILT_DIR := device/xiaomi/xiaomi14-kernel
