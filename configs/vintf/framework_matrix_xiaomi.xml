@@ -29,6 +29,21 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.displayfeature_aidl</name>
+        <version>2</version>
+        <interface>
+            <name>IDisplayFeature</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.micharge</name>
+        <interface>
+            <name>IMiCharge</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.xiaomi.hardware.mfidoca</name>
         <interface>
             <name>IFidoService</name>
@@ -53,6 +68,20 @@
         <name>vendor.xiaomi.hardware.vsimapp</name>
         <interface>
             <name>IVSIMService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hw.touchfeature</name>
+        <interface>
+            <name>ITouchFeature</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.sensor.citsensorservice</name>
+        <interface>
+            <name>ICitSensorService</name>
             <instance>default</instance>
         </interface>
     </hal>
