@@ -305,6 +305,13 @@ vendor/lib64/soundfx/libswspatializer.so
 vendor/lib64/soundfx/libswvqe.so
 vendor/lib64/soundfx/libvolumelistener.so
 
+# Authsecret
+vendor/bin/hw/android.hardware.authsecret-service.nxp
+vendor/etc/init/android.hardware.authsecret-service.nxp.rc
+vendor/etc/vintf/manifest/android.hardware.authsecret-service.nxp.xml
+vendor/lib64/android.hardware.authsecret@1.0.so
+vendor/lib64/android.hardware.authsecret-V1-ndk.so
+
 # Batterysecret
 vendor/bin/batterysecret
 vendor/etc/init/hw/init.batterysecret.rc
