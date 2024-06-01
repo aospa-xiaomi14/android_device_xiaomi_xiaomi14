@@ -2032,9 +2032,18 @@ vendor/etc/init/android.hardware.ir-service.example.rc
 vendor/etc/vintf/manifest/android.hardware.ir-service.example.xml
 
 # Keymaster
+vendor/bin/KmInstallKeybox
+vendor/bin/StoreKeybox
 vendor/bin/hw/android.hardware.security.keymint-service-qti
+vendor/bin/hw/android.hardware.security.keymint-service.strongbox-nxp
 vendor/etc/init/android.hardware.security.keymint-service-qti.rc
+vendor/etc/init/android.hardware.security.keymint-service.strongbox-nxp.rc
+vendor/etc/permissions/android.hardware.hardware_keystore.jc-strongbox-keymint3-nxp.xml
 vendor/etc/vintf/manifest/android.hardware.security.keymint-service-qti.xml
+vendor/etc/vintf/manifest/android.hardware.security.keymint3-service.strongbox-nxp.xml
+vendor/etc/vintf/manifest/android.hardware.security.sharedsecret3-service.strongbox-nxp.xml
+vendor/lib64/libjc_keymint_nxp.so
+vendor/lib64/libjc_keymint_transport_nxp.so
 vendor/lib64/libkeymasterdeviceutils.so
 vendor/lib64/libkeymasterprovision.so
 vendor/lib64/libkeymasterutils.so
