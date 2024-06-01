@@ -309,8 +309,8 @@ vendor/lib64/soundfx/libvolumelistener.so
 vendor/bin/hw/android.hardware.authsecret-service.nxp
 vendor/etc/init/android.hardware.authsecret-service.nxp.rc
 vendor/etc/vintf/manifest/android.hardware.authsecret-service.nxp.xml
-vendor/lib64/android.hardware.authsecret@1.0.so
 vendor/lib64/android.hardware.authsecret-V1-ndk.so
+vendor/lib64/android.hardware.authsecret@1.0.so
 
 # Batterysecret
 vendor/bin/batterysecret
@@ -1724,6 +1724,13 @@ vendor/etc/init/qwesd.rc
 vendor/etc/init/ssgtzd.rc
 vendor/etc/seccomp_policy/qwesd@2.0.policy
 vendor/etc/ssg/tz_whitelist.json
+
+# Contexthub
+odm/etc/init/android.hardware.contexthub-service.qmi.rc:vendor/etc/init/android.hardware.contexthub-service.qmi.rc
+-odm/etc/vintf/manifest.xml:vendor/etc/vintf/android.hardware.contexthub-service.qmi.xml
+vendor/bin/hw/android.hardware.contexthub-service.qmi
+vendor/etc/chre/preloaded_nanoapps.json
+vendor/lib64/android.hardware.contexthub-V2-ndk.so
 
 # Diag
 system_ext/lib64/libdiag_system.qti.so
