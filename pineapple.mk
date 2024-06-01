@@ -126,11 +126,11 @@ KERNEL_PREBUILT_DIR := device/xiaomi/xiaomi14-kernel
 
 # Keymint
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.hardware_keystore.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.hardware_keystore.xml \
     frameworks/native/data/etc/android.hardware.keystore.app_attest_key.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.keystore.app_attest_key.xml \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
 
 PRODUCT_PACKAGES += \
+    android.hardware.hardware_keystore.xml \
     lib_android_keymaster_keymint_utils.vendor \
     libkeymaster_messages.vendor \
     libkeymaster_portable.vendor \
