@@ -117,6 +117,14 @@ PRODUCT_PACKAGES += \
 TARGET_KERNEL_VERSION := 6.1
 KERNEL_PREBUILT_DIR := device/xiaomi/xiaomi14-kernel
 
+# Keymint
+PRODUCT_PACKAGES += \
+    lib_android_keymaster_keymint_utils.vendor \
+    libkeymaster_messages.vendor \
+    libkeymaster_portable.vendor \
+    android.hardware.security.keymint-V2-ndk.vendor \
+    android.hardware.security.keymint-V3-ndk.vendor
+
 # MIDI feature
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
