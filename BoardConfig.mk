@@ -219,6 +219,7 @@ TARGET_USES_REMOTEPROC := true
 
 # SEPolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
+include device/xiaomi/sepolicy/SEPolicy.mk
 
 # SMMU
 TARGET_USES_SMMU_PROXY := true
