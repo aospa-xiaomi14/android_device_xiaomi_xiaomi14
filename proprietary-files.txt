@@ -1760,11 +1760,17 @@ vendor/lib64/libsdmutils.so
 # Display (Config)
 odm/etc/display/qdcm_calib_data_xiaomi_n3_42_0d_0a_cmd_mode_dsc_dsi_panel.json
 odm/etc/mdss_dsi_n3_42_0d_0a_dsc_cmd_mi.xml
+vendor/etc/data/dsi_config.xml
 vendor/etc/display/DPU10__.xml
 vendor/etc/display/DPU9__.xml
 vendor/etc/display/advanced_sf_offsets.xml
 vendor/etc/display/thermallevel_to_fps.xml
+vendor/etc/displayconfig/display_id_4630946416293825923.xml
+vendor/etc/displayconfig/display_id_4630947082089526659.xml
+vendor/etc/displayconfig/display_id_4630947256895775107.xml
 vendor/etc/snapdragon_color_libs_config.xml
+vendor/etc/spr_cfg_xiaomi_n11u_42_02_0a_cmd_mode_dsc_dsi_panel.xml
+vendor/etc/spr_cfg_xiaomi_n3_42_0d_0a_cmd_mode_dsc_dsi_panel.xml
 
 # Displayfeature
 odm/lib64/hw/displayfeature.default.so
@@ -2758,11 +2764,11 @@ vendor/etc/init/android.hardware.thermal-service.qti.rc
 vendor/etc/vintf/manifest/android.hardware.thermal-service.qti.xml
 
 # Thermal Engine
-vendor/bin/thermal-engine-v2
 vendor/bin/mi_thermald
+vendor/bin/thermal-engine-v2
 vendor/etc/init/hw/init.mi_thermald.rc
-vendor/lib64/libthermalclient.so
 vendor/etc/init/init_thermal-engine-v2.rc
+vendor/lib64/libthermalclient.so
 
 # Thermal Engine (Config)
 odm/etc/thermal-4k.conf
