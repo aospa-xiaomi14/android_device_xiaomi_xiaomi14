@@ -287,9 +287,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/vabc_features.m
 PRODUCT_VENDOR_PROPERTIES += ro.virtual_ab.compression.threads=true
 PRODUCT_VIRTUAL_AB_COMPRESSION_METHOD := lz4
 
-# Virtualization
-$(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk)
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init/ueventd-odm.rc:$(TARGET_COPY_OUT_ODM)/etc/ueventd.rc
 
