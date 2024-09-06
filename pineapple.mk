@@ -92,6 +92,10 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # Emulated storage
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
+# FBO
+PRODUCT_PACKAGES += \
+    libext2_uuid.vendor
+
 # Fastbootd
 PRODUCT_PACKAGES += \
     fastbootd \
@@ -110,6 +114,10 @@ PRODUCT_COPY_FILES += \
 
 # ION
 TARGET_USES_NEW_ION := true
+
+# Identity
+PRODUCT_PACKAGES += \
+    android.hardware.identity-V5-ndk.vendor
 
 # Init
 PRODUCT_COPY_FILES += \
@@ -131,15 +139,24 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.hardware_keystore.xml \
+    android.hardware.keymaster@4.1.vendor \
+    android.hardware.keymaster-V3-ndk.vendor \
+    android.hardware.keymaster-V4-ndk.vendor \
+    android.hardware.security.keymint-V2-ndk.vendor \
+    android.hardware.security.keymint-V3-ndk.vendor \
+    android.hardware.security.rkp-V3-ndk.vendor \
+    android.hardware.security.sharedsecret-V1-ndk.vendor \
     lib_android_keymaster_keymint_utils.vendor \
     libkeymaster_messages.vendor \
-    libkeymaster_portable.vendor \
-    android.hardware.security.keymint-V2-ndk.vendor \
-    android.hardware.security.keymint-V3-ndk.vendor
+    libkeymaster_portable.vendor
 
 # MIDI feature
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
+
+# Media
+PRODUCT_PACKAGES += \
+    libcodec2_hidl@1.2.venodr
 
 # Opt out of 16K alignment changes
 PRODUCT_MAX_PAGE_SIZE_SUPPORTED := 4096
@@ -230,6 +247,10 @@ TARGET_COMMON_QTI_COMPONENTS := \
 # RRO configuration
 TARGET_USES_RRO := true
 
+# Runtime
+PRODUCT_PACKAGES += \
+    libandroid_runtime_lazy.vendor
+
 # SMCI-Listeners
 TARGET_ENABLE_SMCI_SYSLISTENER := true
 
@@ -244,7 +265,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/sku_pineapple/android.hardware.sensor.stepdetector.xml
 
 PRODUCT_PACKAGES += \
-    android.hardware.sensors-service.multihal
+    android.hardware.sensors-service.multihal \
+    android.frameworks.sensorservice-V1-ndk.vendor \
+    libsensorndkbridge.vendor
 
 # Shipping API
 SHIPPING_API_LEVEL := 34
@@ -263,6 +286,10 @@ SYSTEMEXT_SEPARATE_PARTITION_ENABLE := true
 # Telephony
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.mbms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.mbms.xml
+
+# Tensorflow
+PRODUCT_PACKAGES += \
+    libflatbuffers-cpp.vendor
 
 # USB
 TARGET_HAS_DIAG_ROUTER := true
