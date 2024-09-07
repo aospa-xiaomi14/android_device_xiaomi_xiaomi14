@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=peridot
+DEVICE=houji
 VENDOR=xiaomi
 
 # Load extract_utils and do some sanity checks

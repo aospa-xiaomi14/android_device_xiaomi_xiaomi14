@@ -1,11 +1,12 @@
 //
 // Copyright (C) 2021-2024 The LineageOS Project
+// Copyright (C) 2024 StatiXOS
 // SPDX-License-Identifier: Apache-2.0
 //
 
 soong_namespace {
     imports: [
-        "hardware/xiaomi"
+        "vendor/hardware/xiaomi"
     ],
 }
 

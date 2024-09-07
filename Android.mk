@@ -1,12 +1,13 @@
 #
 # Copyright (C) 2024 The LineageOS Project
+# Copyright (C) 2024 StatiXOS
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),peridot)
+ifeq ($(TARGET_DEVICE),houji)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
