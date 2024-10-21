@@ -1,0 +1,24 @@
+//
+// Copyright (c) 2024 StatiXOS
+// SPDX-License-Identifier: Apache-2.0
+//
+
+prebuilt_etc {
+    name: "fstab.qcom",
+    src: "fstab.qcom",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.target.rc",
+    src: "init.target.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.xiaomi.rc",
+    src: "init.xiaomi.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
